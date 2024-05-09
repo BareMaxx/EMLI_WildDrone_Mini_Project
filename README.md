@@ -1,4 +1,4 @@
-# EMLI_WildDrone_Mini_Project
+# EMLI WildDrone Mini Project
 
 # Folder structure
 - **rpi:**
