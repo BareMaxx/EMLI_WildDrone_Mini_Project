@@ -7,6 +7,11 @@
 - **esp32:**
   - **scripts:**
   - **cfg:**
+- **drone:**
+  - **scripts:**
+  - **cfg:**
+- **pico:**
+  - **scripts:**
 - **data:**
 
 # Project background
