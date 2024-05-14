@@ -7,7 +7,13 @@ take_picture() {
 	sudo rpicam-still -t 0.01 -o "$a"
 }
 
+motion_detection() {
+	python motion_detect.py ./pictures/picture1.jpg ./pictures/picture2.jpg
+}
+
+
 while true; do
 	take_picture &
-	sleep 2
+	motion_detection &
+	sleep 4
 done
