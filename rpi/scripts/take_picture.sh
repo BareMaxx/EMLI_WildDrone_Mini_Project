@@ -8,12 +8,13 @@ take_picture() {
 }
 
 motion_detection() {
+	cd ..
 	python motion_detect.py ./pictures/picture1.jpg ./pictures/picture2.jpg
 }
 
 
 while true; do
-	take_picture &
+	take_picture
 	motion_detection &
-	sleep 4
+	sleep 3
 done
