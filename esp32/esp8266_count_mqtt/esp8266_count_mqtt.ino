@@ -6,14 +6,14 @@
 // 2022-03-24, Kjeld Jensen, First version
 
 // Configuration
-#define WIFI_SSID       "EMLI_TEAM_11" // 
+#define WIFI_SSID        "EMLI-TEAM-11" // 
 #define WIFI_PASSWORD    "SecureTheStash"
 
-#define MQTT_SERVER      "io.adafruit.com"
+#define MQTT_SERVER      "10.0.0.10"
 #define MQTT_SERVERPORT  1883 
-#define MQTT_USERNAME    "priisholm"
-#define MQTT_KEY         "aio_jEcP16br6erABdP8IWdIk59eBpY4"
-#define MQTT_TOPIC       "/feeds/external-trigger"
+#define MQTT_USERNAME    "my_user"
+#define MQTT_PASSWORD    "SecureTheStash"
+#define MQTT_TOPIC       "/external-trigger"
 
 // wifi
 #include <ESP8266WiFiMulti.h>
@@ -31,7 +31,7 @@ volatile unsigned long count;
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
 WiFiClient wifi_client;
-Adafruit_MQTT_Client mqtt(&wifi_client, MQTT_SERVER, MQTT_SERVERPORT, MQTT_USERNAME, MQTT_KEY);
+Adafruit_MQTT_Client mqtt(&wifi_client, MQTT_SERVER, MQTT_SERVERPORT, MQTT_USERNAME, MQTT_PASSWORD);
 Adafruit_MQTT_Publish count_mqtt_publish = Adafruit_MQTT_Publish(&mqtt, MQTT_USERNAME MQTT_TOPIC);
 
 // publish
@@ -164,4 +164,3 @@ void loop()
     //   Serial.println(count);
     // }
 }
-
