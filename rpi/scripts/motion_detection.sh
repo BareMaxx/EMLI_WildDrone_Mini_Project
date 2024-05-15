@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 cd pictures/
@@ -16,8 +17,11 @@ motion_detection() {
 	if [ "$motion" = "$motion_detected" ]; then
 		echo "Picture saved"
 
+		milli=$(date '+%3N')
 		date_now=$(date '+%Y-%m-%d')
-		name=$(date '+%H%M%S_%3N')
+		name="$(date '+%H%M%S')_$milli"
+		create_date="$(date '+%Y-%m-%d %H:%M:%S').$milli$(date '+%:z')"		
+		date_time=$(date '+%Y-%m-%d %H:%M:%S')
 
 		sudo mkdir -p ../../data/motion_pictures/"$date_now"
 		cp ./pictures/"$a" ../../data/motion_pictures/"$date_now"/"$name.jpg"
@@ -27,9 +31,9 @@ motion_detection() {
 		iso=$(exiftool -s -ISO ./pictures/"$a")
 		
 		json_object='{
-    			"File Name": "'"$name"'.jpg",
-    			"Create Date": "'"$(date '+%Y-%m-%d %H:%M:%3N+%:z')"'",
-    			"Create Seconds Epoch": "'"$(date -d "$date_now" '+%s')"'",
+    			"File Name": "'"$name.jpg"'",
+    			"Create Date": "'"$create_date"'",
+    			"Create Seconds Epoch": "'"$(date -d "$date_time" '+%s').$milli"'",
     			"Trigger": "Motion",
     			"Subject Distance": "'"$(echo "$subject_distance" | awk '{gsub(/[^0-9.]/,""); print}')"'",
     			"Exposure Time": "'"$(echo "$exposure_time" | awk '{print $NF}')"'",
