@@ -23,9 +23,6 @@ head -n 0 <&3 &>/dev/null
 while true; do
     # Read the newest line from the serial port
     if read -r line <&3; then
-        if echo "$line" | grep -q '"rain_detect": 1'; then
-            echo "RAIN DETECTED, PUBLISHING"
-            $(mosquitto_pub -h localhost -t rain_sensed -m "IT IS RAINING MEN HALLELUJA")
-        fi
+        $(mosquitto_pub -h localhost -t rain_sensed -m "$line")
     fi
 done
