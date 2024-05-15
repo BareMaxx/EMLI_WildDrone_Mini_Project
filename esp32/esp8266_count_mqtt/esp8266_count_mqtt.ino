@@ -25,7 +25,6 @@ const uint32_t conn_tout_ms = 5000;
 #define GPIO_INTERRUPT_PIN 4
 #define DEBOUNCE_TIME 100 
 volatile unsigned long count_prev_time;
-volatile unsigned long count;
 
 // mqtt
 #include "Adafruit_MQTT.h"
@@ -84,7 +83,6 @@ void setup()
 {
   // count
   count_prev_time = millis();
-  count = 0;
   pinMode(GPIO_INTERRUPT_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(GPIO_INTERRUPT_PIN), count_isr, RISING);
 
@@ -142,7 +140,6 @@ ICACHE_RAM_ATTR void count_isr()
   if (count_prev_time + DEBOUNCE_TIME < millis() || count_prev_time > millis())
   {
     count_prev_time = millis(); 
-    count++;
 
     publish_data();
   }
@@ -150,17 +147,4 @@ ICACHE_RAM_ATTR void count_isr()
 
 void loop()
 {
-    // if (millis() - prev_post_time >= PUBLISH_INTERVAL)
-    // {
-    //   prev_post_time = millis();
-    //   publish_data();
-    // }
-   
-    // if (millis() - prev_debug_time >= DEBUG_INTERVAL)
-    // {
-    //   prev_debug_time = millis();
-    //   Serial.print(millis());
-    //   Serial.print(" ");
-    //   Serial.println(count);
-    // }
 }
