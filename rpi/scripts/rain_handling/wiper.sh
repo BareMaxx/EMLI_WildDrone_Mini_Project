@@ -12,17 +12,18 @@ stty -F /dev/ttyACM0 raw -echo
 # it possible to read i.e. a whole line from it
 exec 3</dev/ttyACM0
 
-echo INITIALIZING WIPER
-echo '{"wiper_angle": 0}' > /dev/ttyACM0
-echo DONE INITIALIZING, LISTENING FOR WIPE ACTION
+sh ../logger.sh DEBUG "WIPER" "INITIALIZING WIPER"
+
+echo {"wiper_angle": 0} > /dev/ttyACM0
+sh ../logger.sh DEBUG "WIPER" "DONE INITIALIZING, LISTENING FOR WIPE ACTION"
 
 mosquitto_sub -h localhost -t activate_wiper |
    while read payload ; do
+      sh ../logger.sh DEBUG "WIPER" "Received $payload"
       if [ "$payload" = "activate_wiper" ]; then
-         echo Received $payload
-         echo WIPING
-         echo '{"wiper_angle": 180}' > /dev/ttyACM0
-         echo '{"wiper_angle": 0}' > /dev/ttyACM0
-         echo DONE
+         sh ../logger.sh DEBUG "WIPER" "WIPING"
+         echo {"wiper_angle": 180} > /dev/ttyACM0
+         echo {"wiper_angle": 0} > /dev/ttyACM0
+         sh ../logger.sh DEBUG "WIPER" "WIPE FINISH"
       fi
    done
