@@ -14,8 +14,9 @@ motion_detection() {
 	echo "$motion"
 	motion_detected="Motion detected"
 	if [ "$motion" = "$motion_detected" ]; then
-		echo "test of if statement"
-		cp ./pictures/"$a" ./motion_pictures/"$(date '+%Y-%m-%d_%H:%M:%S')_$a"
+		echo "Picture saved"
+		sudo mkdir -p ../../data/motion_pictures/$(date '+%Y-%m-%d')
+		cp ./pictures/"$a" ../../data/motion_pictures/$(date '+%Y-%m-%d')/"$(date '+%H%M%S_%3N').jpg"
 	else
 		echo "No picture saved"
 	fi
