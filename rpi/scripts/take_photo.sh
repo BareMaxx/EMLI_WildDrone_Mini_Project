@@ -6,8 +6,8 @@ name="$(date '+%H%M%S')_$milli"
 create_date="$(date '+%Y-%m-%d %H:%M:%S').$milli$(date '+%:z')"         
 date_time=$(date '+%Y-%m-%d %H:%M:%S')
 
-sudo mkdir -p ../../data/motion_pictures/"$date_now"
-picturePath=../../data/motion_pictures/"$date_now"/"$name.jpg"
+sudo mkdir -p ../../data/pictures/"$date_now"
+picturePath=../../data/pictures/"$date_now"/"$name.jpg"
 sudo rpicam-still -t 0.01 -o "$picturePath"
 
 subject_distance=$(exiftool -s -SubjectDistance "$picturePath")
@@ -24,5 +24,5 @@ json_object='{
 "ISO": "'"$(echo "$iso" | awk '{print $NF}')"'"
 }'
 
-echo "$json_object" > ../../data/motion_pictures/"$date_now"/"$name.json"
+echo "$json_object" > ../../data/pictures/"$date_now"/"$name.json"
 
