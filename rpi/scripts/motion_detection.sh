@@ -23,8 +23,8 @@ motion_detection() {
 		create_date="$(date '+%Y-%m-%d %H:%M:%S').$milli$(date '+%:z')"		
 		date_time=$(date '+%Y-%m-%d %H:%M:%S')
 
-		sudo mkdir -p ../../data/motion_pictures/"$date_now"
-		cp ./pictures/"$a" ../../data/motion_pictures/"$date_now"/"$name.jpg"
+		sudo mkdir -p ../../data/pictures/"$date_now"
+		cp ./pictures/"$a" ../../data/pictures/"$date_now"/"$name.jpg"
 		
 		subject_distance=$(exiftool -s -SubjectDistance ./pictures/"$a")
 		exposure_time=$(exiftool -s -ExposureTime ./pictures/"$a")
@@ -40,7 +40,7 @@ motion_detection() {
     			"ISO": "'"$(echo "$iso" | awk '{print $NF}')"'"
 		}'
 
-		echo "$json_object" > ../../data/motion_pictures/"$date_now"/"$name.json"
+		echo "$json_object" > ../../data/pictures/"$date_now"/"$name.json"
 	else
 		echo "No picture saved"
 	fi
