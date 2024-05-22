@@ -4,13 +4,8 @@ remote_user="$1"
 remote_host="$2"
 remote_dir="$3"
 
-<<<<<<< HEAD
-sudo mkdir -p ./test_downloads
+´sudo mkdir -p ./test_downloads
 sudo chmod -R 755 ./test_downloads
-=======
-sudo mkdir -p ./test_download
-sudo chmod -R 755 ./test_download
->>>>>>> 37a6449 (Download files to remote host)
 
 outer_dir="../../data/pictures"
 
