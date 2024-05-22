@@ -8,6 +8,10 @@
   "ISO": "112",
   "Drone Copy": {
     "Drone ID": "WILDDRONE-001",
+<<<<<<< HEAD
     "Seconds Epoch": 1716376530.919
+=======
+    "Seconds Epoch": 1716375598.711
+>>>>>>> 02c064f (Done)
   }
 }
