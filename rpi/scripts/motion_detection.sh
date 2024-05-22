@@ -4,18 +4,19 @@
 cd pictures/
 
 take_picture() {
+	sh ../logger.sh DEBUG "MOTION_DETECTION" "Taking picture"
 	a=$(ls -t "./" | tail -n 1)
-	echo "File to be overwritten: $a"
+	sh ../logger.sh DEBUG "MOTION_DETECTION" "File to be overwritten: $a"
 	sudo rpicam-still -t 0.01 -o "$a"
 }
 
 motion_detection() {
 	cd ..
+	sh /logger.sh DEBUG "MOTION_DETECTION" "Checking for motion"
 	motion=$(python motion_detect.py ./pictures/picture1.jpg ./pictures/picture2.jpg)
-	echo "$motion"
 	motion_detected="Motion detected"
 	if [ "$motion" = "$motion_detected" ]; then
-		echo "Picture saved"
+		sh /logger.sh DEBUG "MOTION_DETECTION" "Motion detected, saving photo"
 
 		milli=$(date '+%3N')
 		date_now=$(date '+%Y-%m-%d')
@@ -40,10 +41,11 @@ motion_detection() {
     			"Exposure Time": "'"$(echo "$exposure_time" | awk '{print $NF}')"'",
     			"ISO": "'"$(echo "$iso" | awk '{print $NF}')"'"
 		}'
-
+		sh /logger.sh DEBUG "MOTION_DETECTION" "Photo saved in: $date_now/$name.jpg"
+		sh /logger.sh DEBUG "MOTION_DETECTION" "JSON saved in: $date_now/$name.json"
 		echo "$json_object" > ../../data/pictures/"$date_now"/"$name.json"
 	else
-		echo "No picture saved"
+		sh /logger.sh DEBUG "MOTION_DETECTION" "No motion detected, photo not saved"
 	fi
 }
 
