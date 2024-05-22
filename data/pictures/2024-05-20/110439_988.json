@@ -1,9 +1,13 @@
 {
-    			"File Name": "110439_988.jpg",
-    			"Create Date": "2024-05-20 11:04:39.988+02:00",
-    			"Create Seconds Epoch": "1716195879.988",
-    			"Trigger": "Motion",
-    			"Subject Distance": "0.2964719834",
-    			"Exposure Time": "1/36",
-    			"ISO": "112"
-		}
+  "File Name": "110439_988.jpg",
+  "Create Date": "2024-05-20 11:04:39.988+02:00",
+  "Create Seconds Epoch": "1716195879.988",
+  "Trigger": "Motion",
+  "Subject Distance": "0.2964719834",
+  "Exposure Time": "1/36",
+  "ISO": "112",
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1716376530.67
+  }
+}
