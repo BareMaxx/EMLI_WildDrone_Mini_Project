@@ -7,6 +7,7 @@ create_date="$(date '+%Y-%m-%d %H:%M:%S').$milli$(date '+%:z')"
 date_time=$(date '+%Y-%m-%d %H:%M:%S')
 
 sudo mkdir -p ../../data/pictures/"$date_now"
+sudo chmod -R 755 ../../data/pictures/"$date_now"
 picturePath=../../data/pictures/"$date_now"/"$name.jpg"
 sudo rpicam-still -t 0.01 -o "$picturePath"
 

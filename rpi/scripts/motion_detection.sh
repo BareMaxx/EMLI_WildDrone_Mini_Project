@@ -24,6 +24,7 @@ motion_detection() {
 		date_time=$(date '+%Y-%m-%d %H:%M:%S')
 
 		sudo mkdir -p ../../data/pictures/"$date_now"
+		sudo chmod -R 755 ../../data/pictures/"$date_now"
 		cp ./pictures/"$a" ../../data/pictures/"$date_now"/"$name.jpg"
 		
 		subject_distance=$(exiftool -s -SubjectDistance ./pictures/"$a")
