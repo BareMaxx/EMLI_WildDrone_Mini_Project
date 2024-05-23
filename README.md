@@ -4,17 +4,15 @@
 - **rpi:**
   - **README**
   - **scripts:**
-  - **cfg:**
+  - **website:**
 - **cloud:**
   - **README**
   - **scripts:**
 - **esp32:**
   - **scripts:**
-  - **cfg:**
 - **drone:**
   - **README**
   - **scripts:**
-  - **cfg:**
 - **pico:**
   - **scripts:**
 - **data:**
