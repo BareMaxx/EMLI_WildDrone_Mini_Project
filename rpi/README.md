@@ -8,3 +8,10 @@ sudo apt install python3-opencv
 Motion detection only stores the latest picture permanently if motion is detected.
 
 take_photo.sh and motion_detection.sh will place the pictures in ./data/pictures/
+
+## How to use logger
+sh logger.sh <LEVEL> <TAG> <MESSAGE>
+
+<LEVEL>: Either DEBUG, WARN, ERROR. Is optional, defaults to DEBUG.
+<TAG>: Name of the service calling the logger i.e. TAKE_PHOTO
+<MESSAGE>: The log message.
