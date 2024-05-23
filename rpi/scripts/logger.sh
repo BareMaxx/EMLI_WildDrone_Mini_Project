@@ -8,6 +8,7 @@ target_dir="$script_dir/../../data/logger"
 mkdir -p $target_dir
 touch $target_dir/syslog.log
 
+sudo chmod -R 755 $target_dir/syslog.log
 
 if [ $# -ne 3 ]; then
     TYPE="DEBUG"

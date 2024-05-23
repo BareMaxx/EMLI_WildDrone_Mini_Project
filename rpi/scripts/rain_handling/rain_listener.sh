@@ -1,5 +1,5 @@
 #!/bin/bash
-
+script_dir=$(dirname "$(readlink -f "$0")")
 # Configure serial port
 # stty is a command to configure the serial port
 # -F is used to define which serial port the config is changing
@@ -19,11 +19,11 @@ exec 3</dev/ttyACM0
 # &>/dev/null is used to discard any messages which could appear from
 # the head command. 
 head -n 0 <&3 &>/dev/null
-sh ../logger.sh DEBUG "RAIN_LISTENER" "INITIALIZING"
+sh $script_dir/../logger.sh DEBUG "RAIN_LISTENER" "INITIALIZING"
 while true; do
     # Read the newest line from the serial port
     if read -r line <&3; then
-        $(mosquitto_pub -h localhost -t rain_sensed -m "$line")
+        $(mosquitto_pub -u "my_user" -P "SecureTheStash" -h localhost -t rain_sensed -m "$line")
     fi
 done
-sh ../logger.sh ERROR "RAIN_LISTENER" "Outside while loop, this is not possible."
+sh $script_dir/../logger.sh ERROR "RAIN_LISTENER" "Outside while loop, this is not possible."

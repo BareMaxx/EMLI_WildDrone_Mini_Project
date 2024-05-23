@@ -1,21 +1,24 @@
 #!/bin/bash
 
 directory_path="$1"
-LLAMA3_URL="http://127.0.0.1:11434/annotate"
+
+script_dir=$(dirname "$(readlink -f "$0")")
 
 for file_path in "$directory_path"/*; do
-    if [[ "$file_path" == *"json"* ]]; then
-        picture_path="${file_path%.*}.jpg"
-        json_file="$file_path"
+	if [[ "$file_path" == *"json"* ]]; then
+		picture_path="${file_path%.*}.jpg"
+ 		json_file="$file_path"
 
-        response=$(ollama run llama3 --verbose < "$picture_path")
-        echo "Test of response: $response"
-	annotation_text="$response"
+		response=$(sudo ollama run llava "Describe $picture_path")
+		echo "Test of response: $response"
+		annotation_text="$response"
 
-        new_data=$(jq -n --arg source "Llama3" --arg text "$annotation_text" \
-                    '{"Annotation": {"Source": $source, "Text": $text}}')
+		new_data=$(jq -n --arg source "Llama3" --arg text "$annotation_text" \
+        	    '{"Annotation": {"Source": $source, "Text": $text}}')
 
-        jq --argjson new_data "$new_data" '. + $new_data' "$json_file" > tmp.$$.json && mv tmp.$$.json "$json_file"
-    fi
+		jq --argjson new_data "$new_data" '. + $new_data' "$json_file" > tmp.$$>
+	fi
 done
 
+sudo mkdir -P $script_dir/../../data/cloud_json/
+sudo cp "$directory_path"/*.json $script_dir/../../data/cloud_json/
