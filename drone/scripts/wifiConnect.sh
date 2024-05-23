@@ -43,7 +43,7 @@ start_wifi_connect() {
 				echo "Connected to Wifi network: $wifi_ssid"
 			else
 				echo "Failed to connect to Wifi network: $wifi_ssid"
-				sleep 5
+				sleep 1
 			fi
 		else
 			echo "Wifi $wifi_ssid not found"
