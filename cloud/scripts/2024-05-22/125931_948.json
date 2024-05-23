@@ -1,0 +1,17 @@
+{
+  "File Name": "125931_948.jpg",
+  "Create Date": "2024-05-22 12:59:31.948+02:00",
+  "Create Seconds Epoch": "1716375571.948",
+  "Trigger": "Motion",
+  "Subject Distance": "0.7716049383",
+  "Exposure Time": "1/1057",
+  "ISO": "113",
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1716376532.425
+  },
+  "Annotation": {
+    "Source": "Llama3",
+    "Text": ""
+  }
+}
