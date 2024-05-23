@@ -10,3 +10,9 @@ sudo ./cloud_annotation_ollama.sh ../../data/pictures/2024-05-23
 This script pushes the json files. To run the script do the following:
 sudo ./upload_json_files_to_repo.sh "you@github-email.com" "GitHub-name"
 
+### If it complains about lack of permission because it finds the shell script sus
+You need to give the repo special permission:
+sudo git config --global --add safe.directory EMLI_WildDrone_Mini_Project
+
+
+
