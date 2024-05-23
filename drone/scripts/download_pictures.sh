@@ -7,7 +7,9 @@ remote_dir="$3"
 sudo mkdir -p ./test_downloads
 sudo chmod -R 755 ./test_downloads
 
-outer_dir="../../data/pictures"
+script_dir=$(dirname "$(readlink -f "$0")")
+
+outer_dir=$script_dir/"../../data/pictures"
 
 for date_dir in "$outer_dir"/*; do
         echo "Folder: $date_dir"
