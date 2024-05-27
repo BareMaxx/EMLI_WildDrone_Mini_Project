@@ -7,6 +7,7 @@ Start the drone by running bash droneFlight.sh.
 
 ./scripts/initiateDownload.sh is used to download the pictures and metadata files from the drone. The script is automatically run by the droneFlight script as a background service. The initiateDownload script first requests all the images and metadata files from the wildlife camera. The wildlife camera only returns the path of the files that has not already been downloaded. The initiateDownload script then goes through each pair of image and metadata file and scp (downloads) the files and then makes a SSH call to a script on the wildlife camera which marks the newly downloaded files as downloaded.
 Next time the drone connects to the same camera, it will perform the same actions again and therefore continue to download the files it's missing and the new ones created while it was disconnected.
+The initiateDownload script downloads the files to a folder (it creates itself) called wildlife_downloads. This folder should be used when running the AI analyzer.
 
 ./scripts/setupDatabase.sh is used to create the MySQL database and the table WifiSignalTable. The droneFlight script calls the function insert_row() every 0.1 seconds to log the wifi signal.
 
