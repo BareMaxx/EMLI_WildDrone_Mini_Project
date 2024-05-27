@@ -1,5 +1,5 @@
 ## Important
-In order to ensure that the computer running the drone script ./scripts/droneFlight.sh, has all the libraries required (mysql, wireless-tools), the user has to manually run the script ./scripts/runPrerequisites.sh to install it.
+In order to ensure that the computer running the drone script ./scripts/droneFlight.sh, has all the libraries required (mysql, wireless-tools, jq), the user has to manually run the script ./scripts/runPrerequisites.sh to install it.
 
 ## Scripts
 The "master" script running on the drone is the ./scripts/droneFlight.sh. This script utilizes all the other scripts (apart from the ./scripts/runPrerequisites.sh script).
