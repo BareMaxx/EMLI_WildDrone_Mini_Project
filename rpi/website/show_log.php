@@ -11,7 +11,7 @@
     <p>Go back to the pictures and metadata by clicking <a href="/wildlifecam.php">here</a>.</p>
 <?php
     $logfilePath = '/home/jeinere/mini_project/EMLI_WildDrone_Mini_Project/data/logger/syslog.log';
-    $fullPath = realpath($logfile);
+    $fullPath = realpath($logfilePath);
 
     $file = fopen($fullPath, "r");
     while(false !== ($line = fgets($file))) {

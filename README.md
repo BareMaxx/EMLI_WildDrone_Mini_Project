@@ -2,17 +2,29 @@
 
 # Folder structure
 - **rpi:**
+  - **README**
   - **scripts:**
-  - **cfg:**
+  - **website:**
+- **cloud:**
+  - **README**
+  - **scripts:**
 - **esp32:**
   - **scripts:**
-  - **cfg:**
 - **drone:**
+  - **README**
   - **scripts:**
-  - **cfg:**
 - **pico:**
   - **scripts:**
 - **data:**
+  - **pictures:**
+  - **cloud_json_**
+ 
+# Required downloads
+## For basicly all scripts (JSON handling)
+sudo apt-get install jq
+
+## For Cloud
+curl -fsSL https://ollama.com/install.sh | sh
 
 # Project background
 SDU is leading a reserach project called WildDrone - Research in Autonomous Drones for Nature Conservation. The project focuses has two wildlife reserves, the Wadden Sea National Park in Denmark and the Ol Pejeta Conservancy in Kenya. One of the ideas that has come out of this project, especially for our work in Kenya, is to develop a next generation wildlife camera. In this project you will build the embedded linux setup for such a wildlife camera. You are welcome to read more about the project at this website, however this is not directly relevant to the project: https://wilddrone.eu
