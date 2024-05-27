@@ -16,6 +16,9 @@ start_search() {
 	# Tell the rpi to connect to the drone's Chrony server to sync its date and time
 	bash timeSync.sh
 
+	# Tell the rpi that it should send the unsent images and metadata files to this drone
+	bash initiateDownload.sh "$droneID" &
+
 	# While we are connected to the rpi, do...
 	while connected_to_emli;
 	do

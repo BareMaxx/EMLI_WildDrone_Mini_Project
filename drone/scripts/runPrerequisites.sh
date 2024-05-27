@@ -19,3 +19,12 @@ if ! command -v iwgetid &> /dev/null; then
 else
 	echo "wireless-tools is already installed"
 fi
+
+
+# Ensure that jq is installed (used for when getting the file paths from the wildlife camera)
+if ! command -v jq &> /dev/null; then
+	echo "jq could not be found. Installing..."
+	sudo apt-get install jq
+else
+	echo "jq is already installed"
+fi

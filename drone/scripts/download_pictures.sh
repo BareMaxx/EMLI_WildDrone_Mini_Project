@@ -3,9 +3,7 @@
 remote_user="$1"
 remote_host="$2"
 remote_dir="$3"
-
-sudo mkdir -p ./test_downloads
-sudo chmod -R 755 ./test_downloads
+drone_id="$4"
 
 outer_dir="../../data/pictures"
 
@@ -15,7 +13,7 @@ for date_dir in "$outer_dir"/*; do
                 milli=$(date '+%3N')
                 date_time=$(date '+%Y-%m-%d %H:%M:%S')
                 seconds_epoch="$(date -d "$date_time" '+%s').$milli"
-                drone_id="WILDDRONE-001"
+                #drone_id="WILDDRONE-001"
 
                 if [[ "$file_path" == *"json"* ]]; then
                         picture_path="${file_path%.*}.jpg"
@@ -26,7 +24,7 @@ for date_dir in "$outer_dir"/*; do
                                 continue
                         else
                                 updated_json=$(jq --arg drone_id "$drone_id" --argjson seconds_epoch "$seconds_epoch" \
-                                '. + {"Drone Copy": {"Drone ID": $drone_id, "Seconds Epoch": $seconds_epoch}}' "$file_path")            
+                                '. + {"Drone Copy": {"Drone ID": $drone_id, "Seconds Epoch": $seconds_epoch}}' "$file_path")
                                 echo "$updated_json" > "$file_path"
 
                                 sudo scp "$file_path" "$remote_user@$remote_host:$remote_dir/"
