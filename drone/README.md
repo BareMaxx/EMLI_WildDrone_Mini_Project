@@ -5,12 +5,8 @@ In order to ensure that the computer running the drone script ./scripts/droneFli
 The "master" script running on the drone is the ./scripts/droneFlight.sh. This script utilizes all the other scripts (apart from the ./scripts/runPrerequisites.sh script).
 Start the drone by running bash droneFlight.sh.
 
-./scripts/download_pictures.sh is used to download files from where it is run from to an external host.
-To use the script the drone should SSH into the Raspberry PI and then run the sript on the PI.
-To run the script a remote user, host and target directory should be defined.
-
-Example:
-sudo ./scripts/download_pictures.sh "username" "host" "/path/to/directory" 
+./scripts/initiateDownload.sh is used to download the pictures and metadata files from the drone. The script is automatically run by the droneFlight script as a background service. The initiateDownload script first requests all the images and metadata files from the wildlife camera. The wildlife camera only returns the path of the files that has not already been downloaded. The initiateDownload script then goes through each pair of image and metadata file and scp (downloads) the files and then makes a SSH call to a script on the wildlife camera which marks the newly downloaded files as downloaded.
+Next time the drone connects to the same camera, it will perform the same actions again and therefore continue to download the files it's missing and the new ones created while it was disconnected.
 
 ./scripts/setupDatabase.sh is used to create the MySQL database and the table WifiSignalTable. The droneFlight script calls the function insert_row() every 0.1 seconds to log the wifi signal.
 
