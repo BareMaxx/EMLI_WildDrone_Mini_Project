@@ -5,9 +5,5 @@
   "Trigger": "Time",
   "Subject Distance": "1.02145046",
   "Exposure Time": "1/33",
-  "ISO": "131",
-  "Annotation": {
-    "Source": "llava:7b",
-    "Text": " The image you've provided appears to be a photograph of a person holding a mobile phone, taken outdoors during daylight hours. The person is wearing sunglasses and seems to be in the process of either taking a photo or viewing something on the screen of the phone.\n\nThe background is mostly out of focus, but it looks like an urban setting with a street scene that includes buildings and possibly some foliage. There are no visible texts or distinctive marks in the image that would provide additional context or information about the location or event. The style of the photograph seems candid and unposed, suggesting it might have been taken during a casual outing or while capturing a moment from daily life. "
-  }
+  "ISO": "131"
 }
