@@ -26,6 +26,10 @@ sudo apt-get install jq
 ## For Cloud
 curl -fsSL https://ollama.com/install.sh | sh
 
+## For Drone
+Run the /drone/scripts/runPrerequisites.sh to install all required packages or install them manually by installing mysql-server, wireless-tools and jq.
+The MySQL server can be set up using the shell command mysql_secure_installation after installing.
+
 # Project background
 SDU is leading a reserach project called WildDrone - Research in Autonomous Drones for Nature Conservation. The project focuses has two wildlife reserves, the Wadden Sea National Park in Denmark and the Ol Pejeta Conservancy in Kenya. One of the ideas that has come out of this project, especially for our work in Kenya, is to develop a next generation wildlife camera. In this project you will build the embedded linux setup for such a wildlife camera. You are welcome to read more about the project at this website, however this is not directly relevant to the project: https://wilddrone.eu
 
