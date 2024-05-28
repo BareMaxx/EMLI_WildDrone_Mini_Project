@@ -5,5 +5,9 @@
   "Trigger": "Time",
   "Subject Distance": "1.02145046",
   "Exposure Time": "1/33",
-  "ISO": "131"
+  "ISO": "131",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Text": " The image appears to be a photograph taken during the daytime, featuring a green landscape with trees and vegetation in focus. In the foreground, there is a clear view of leaves and branches, suggesting that the photo was likely taken from a distance or at ground level. The background shows a gradient of colors, transitioning from greens to more muted tones further away. The lighting in the image indicates an overcast sky with diffused light casting soft shadows on the landscape. There are no visible texts or distinguishing features that provide additional context or information about the location or the specific event captured in the photograph. "
+  }
 }
