@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Get the current folder of this script
+script_dir=$(dirname "$(readlink -f "$0")")
+
 sh $script_dir/logger.sh DEBUG "DRONE_CONNECTION" "Drone requested Chrony connection config update"
 
 chrony_conf_file="/etc/chrony/chrony.conf"
