@@ -8,6 +8,8 @@ outer_dir=$script_dir/"../../data/pictures"
 
 is_first=0
 
+sh $script_dir/logger.sh DEBUG "DRONE_CONNECTION" "Drone initiated download"
+
 echo "["
 for date_dir in "$outer_dir"/*; do
 	for file_path in "$date_dir"/*; do

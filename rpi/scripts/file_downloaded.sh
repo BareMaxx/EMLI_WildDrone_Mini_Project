@@ -23,3 +23,5 @@ cat $file_path
 updated_json=$(jq --arg drone_id "$drone_id" --argjson seconds_epoch "$seconds_epoch" \
 '. + {"Drone Copy": {"Drone ID": $drone_id, "Seconds Epoch": $seconds_epoch}}' "$file_path")
 echo "$updated_json" > "$file_path"
+
+sh $script_dir/logger.sh DEBUG "DRONE_CONNECTION" "Drone $drone_id downloaded file $filename"
